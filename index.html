@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список студентов</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer type="module" src="./js/main.js"></script>
+</head>
+
+<body>
+  <!-- Этап 1. Создайте верстку элементов, которые будут статичны (неизменны).  -->
+  <header class="header">
+    <div class="container">
+      <h1 class="display-1 d-flex justify-content-center">Список студентов</h1>
+    </div>
+  </header>
+  <section class="main">
+    <div class="container">
+      <div class="d-flex justify-content-center align-items-center m-4">
+        <button type="button" id="callModal" class="btn btn-primary">Добавить студента</button>
+      </div>
+      <div class="modal">
+        <div class="row justify-content-center modal__add-students">
+          <span id="close" class="close">&times;</span>
+          <form action="" id="add__students" class="row justify-content-center add__students">
+            <h3 class="text-center mb-4">Добавление Студента</h3>
+            <div class="field__warn">
+              <input class="form-control mb-3 form__input" data-min-length="2" type="text" placeholder="Фамилия"
+                id="surename">
+            </div>
+            <div class="field__warn">
+              <input class="form-control mb-3 form__input" data-min-length="2" type="text" placeholder="Имя" id="name">
+            </div>
+            <div class="field__warn">
+              <input class="form-control mb-3 form__input" data-min-length="2" type="text" placeholder="Отчество"
+                id="lastname">
+            </div>
+            <div class="field__warn">
+              <input class="form-control mb-3 form__input" data-min-length="2" type="text" placeholder="Факультет"
+                id="faculty">
+            </div>
+            <div class="field__warn">
+              <input class="form-control mb-3 form__input" data-min-birth="1900-01-01" type="date" id="birthDate">
+            </div>
+            <div class="field__warn">
+              <input class="form-control mb-3 form__input" data-min-start="2000" type="text"
+                placeholder="Год начало обучения" id="studyStart">
+            </div>
+            <button class="btn btn-primary add__students-button">Добавить</button>
+          </form>
+        </div>
+      </div>
+      <table class="table students__table">
+        <thead>
+          <tr>
+            <form action="" id="filter-form">
+              <td>
+                <input class="form-control form__input form__filter" type="text" placeholder="Сортировка - ФИО" id="input-fio" data-filter="fio">
+              </td>
+              <td>
+                <input class="form-control form__input form__filter" type="text" placeholder="Сортировка - Факультет" id="inp-faculty" data-filter="faculty">
+              </td>
+              <td>
+                <input class="form-control form__input form__filter" type="text" placeholder="Сортировка - Дата рождения" id="inp-birthDay" data-filter="birthDay">
+              </td>
+              <td>
+                <input class="form-control form__input form__filter" type="text" placeholder="Сортировка - Годы обучения" id="inp-studyStart" data-filter="studyStartString">
+              </td>
+            </form>
+          </tr>
+          <tr>
+            <th data-column="fio" data-sort="Ф.И.О" scope="col">Ф.И.О &#9650</th>
+            <th data-column="faculty" data-sort="Факультет" scope="col">Факультет </th>
+            <th data-column="birthDate" data-sort="Дата рождения" scope="col">Дата рождения</th>
+            <th data-column="studyStart" data-sort="Годы обучения" scope="col">Годы обучения</th>
+          </tr>
+        </thead>
+        <tbody id="list__students" class="list__students">
+        </tbody>
+      </table>
+    </div>
+  </section>
+</body>
+
+</html>
